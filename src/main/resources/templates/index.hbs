@@ -5,6 +5,13 @@
                 {{#each posts}}
                     <article>
                         <h2><a href="/detail/{{slug}}">{{this.title}}</a></h2>
+                        {{#if this.tags}}
+                            <ul>
+                            {{#each this.tags}}
+                                <li>{{this}}</li>
+                            {{/each}}
+                            </ul>
+                        {{/if}}
                         <time>{{this.date}}</time>
                     </article>
                 {{/each}}

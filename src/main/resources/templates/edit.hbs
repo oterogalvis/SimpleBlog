@@ -2,14 +2,38 @@
     <div class="container">
         <div class="edit-entry">
             <h2>Edit Entry</h2>
-            <form method="post" action="/{{post.slug}}/save">
+
+            <form id="entryfrom" method="post" action="/{{post.slug}}/save">
                 <label for="title"> Title</label>
                 <input type="text" name="title" value="{{post.title}}"><br>
+
                 <label for="entry">Entry</label>
                 <textarea rows="5" name="entry">{{post.body}}</textarea>
-                <button class="button">Save Entry</button>
-                <a href="/{{post.slug}}" class="button button-secondary">Cancel</a>
             </form>
+
+            <label for="tags"> Tags</label>
+            {{#if post.tags}}
+                <ul>
+                    {{#each post.tags}}
+                        <li>
+                            <form action="/delete/tag/{{post.slug}}" method="post">
+                                {{this}}
+                                <button type="submit" name="tag" value="{{this}}" class="button button-secondary">
+                                    Delete
+                                </button>
+                            </form>
+                        </li>
+                    {{/each}}
+                </ul>
+            {{/if}}
+            <form method="post" action="/add/tag/{{post.slug}}">
+                <input type="text" name="tag" placeholder="Add new tag">
+                <button class="button">Add</button>
+            </form>
+
+                <button form="entryfrom" class="button">Save Entry</button>
+                <a href="/delete/{{post.slug}}" class="button">Delete Entry</a>
+                <a href="/detail/{{post.slug}}" class="button button-secondary">Cancel</a>
         </div>
     </div>
     </section>
@@ -18,17 +42,17 @@
 {{> base.hbs}}
 
 <!--<section>-->
-    <!--<div class="container">-->
-        <!--<div class="edit-entry">-->
-            <!--<h2>Edit Entry</h2>-->
-            <!--<form>-->
-                <!--<label for="title"> Title</label>-->
-                <!--<input type="text" name="title"><br>-->
-                <!--<label for="entry">Entry</label>-->
-                <!--<textarea rows="5" name="entry"></textarea>-->
-                <!--<input type="submit" value="Save Entry" class="button">-->
-                <!--<a href="#" class="button button-secondary">Cancel</a>-->
-            <!--</form>-->
-        <!--</div>-->
-    <!--</div>-->
+<!--<div class="container">-->
+<!--<div class="edit-entry">-->
+<!--<h2>Edit Entry</h2>-->
+<!--<form>-->
+<!--<label for="title"> Title</label>-->
+<!--<input type="text" name="title"><br>-->
+<!--<label for="entry">Entry</label>-->
+<!--<textarea rows="5" name="entry"></textarea>-->
+<!--<input type="submit" value="Save Entry" class="button">-->
+<!--<a href="#" class="button button-secondary">Cancel</a>-->
+<!--</form>-->
+<!--</div>-->
+<!--</div>-->
 <!--</section>-->

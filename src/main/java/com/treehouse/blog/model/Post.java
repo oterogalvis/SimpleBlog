@@ -22,8 +22,12 @@ public class Post extends Entry {
         slug = slugify.slugify(title);
     }
 
-    public void addTags(String tag) {
+    public void addTag(String tag) {
         tags.add(tag);
+    }
+
+    public void deleteTag(String tag) {
+        tags.remove(tag);
     }
 
     public void addComments(Comment comment) {

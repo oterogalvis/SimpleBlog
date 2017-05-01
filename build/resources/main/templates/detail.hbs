@@ -7,6 +7,14 @@
                     <time>{{post.date}}</time>
                     <div class="entry">
                         <p>{{post.body}}</p>
+                        {{#if post.tags}}
+                            <h4>Tags</h4>
+                            <ul>
+                                {{#each post.tags}}
+                                    <li>{{this}}</li>
+                                {{/each}}
+                            </ul>
+                        {{/if}}
                         <p><a class="link" href="/edit/{{post.slug}}">Edit Entry</a></p>
                     </div>
                 </article>

@@ -122,10 +122,34 @@ public class main {
             String password = request.queryParams("password");
             if (password.equals(blogDao.getUser())) {
                 response.cookie("password", password);
-                response.redirect(request.cookie("actionBeforePassword"));
+//                TODO: Fix this issue and deleted the next two lines.
+                String actionBeforePassword = request.cookie("actionBeforePassword");
+                String redirectTo = null == actionBeforePassword ? "/" : actionBeforePassword;
+                response.redirect(redirectTo);
             } else {
                 response.redirect("/password");
             }
+            return null;
+        });
+
+        get("/delete/:slug", (request, response) -> {
+            Post post = blogDao.getPostsbySlug(request.params("slug"));
+            blogDao.deletePost(post);
+            response.redirect("/");
+            return null;
+        });
+
+        post("/delete/tag/:slug", (request, response) -> {
+            Post post = blogDao.getPostsbySlug(request.params("slug"));
+            post.deleteTag(request.queryParams("tag"));
+            response.redirect(String.format("/edit/%s", request.params("slug")));
+            return null;
+        });
+
+        post("/add/tag/:slug", (request, response) -> {
+            Post post = blogDao.getPostsbySlug(request.params("slug"));
+            post.addTag(request.queryParams("tag"));
+            response.redirect(String.format("/edit/%s", request.params("slug")));
             return null;
         });
     }
