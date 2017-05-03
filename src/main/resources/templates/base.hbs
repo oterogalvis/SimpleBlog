@@ -10,7 +10,6 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="/css/normalize.css">
         <link rel="stylesheet" href="/css/site.css">
-        <link rel="stylesheet" href="/css/mystyle.css">
     </head>
     <body>
 {{/block}}
@@ -23,6 +22,11 @@
             </div>
         </div>
     </header>
+    {{#if flash_message}}
+        <p class="flash_message">
+            {{flash_message}}
+        </p>
+    {{/if}}
 {{/block}}
 {{#block "content"}}
 

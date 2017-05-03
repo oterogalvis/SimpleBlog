@@ -122,7 +122,6 @@ a.link {
 }
 
 
-
 /* ==========================================================================
    Page Styles
    ========================================================================== */
@@ -263,7 +262,21 @@ input[type=submit] {
 }
 
 
+/* My bad CSS*/
 
+ul {
+	list-style-type: none;
+}
+
+.tags-index ul li {
+	font-family: Arial;
+	border-color: #999999;
+}
+
+.flash_message {
+	color: #FFFFFF;
+	text-align: center;
+}
 
 
 

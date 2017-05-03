@@ -1,10 +1,6 @@
 package com.treehouse.blog;
 
-import com.treehouse.blog.model.Comment;
-import com.treehouse.blog.model.Post;
-import com.treehouse.blog.model.BlogDao;
-import com.treehouse.blog.model.SimpleBlogDao;
-import spark.Filter;
+import com.treehouse.blog.model.*;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
@@ -33,23 +29,19 @@ public class main {
             }
         });
 
-        before("/new",(request, response) -> {
-//            TODO: Throw a FlashMessage.
+        before("/new", (request, response) -> {
             HashMap model = request.attribute("model");
             if (null == model.get("password")) {
-                response.cookie("actionBeforePassword", "/new");
+                FlashMessage.setFlashMessage(request, "Please sign in first!");
                 response.redirect("/password");
                 halt();
             }
         });
 
-        before("/edit/:slug",(request, response) -> {
-//            TODO: Throw a FlashMessage.
+        before("/edit/:slug", (request, response) -> {
             HashMap model = request.attribute("model");
-            Post post = blogDao.getPostsbySlug(request.params("slug"));
-            String slug = String.format("/%s", post.getSlug());
             if (null == model.get("password")) {
-                response.cookie("actionBeforePassword", slug);
+                FlashMessage.setFlashMessage(request, "Please sign in first!");
                 response.redirect("/password");
                 halt();
             }
@@ -114,19 +106,18 @@ public class main {
 
         get("/password", (request, response) -> {
             HashMap model = request.attribute("model");
+            model.put("flash_message", FlashMessage.captureFlashMessage(request));
             return new ModelAndView(model, "password.hbs");
         }, new HandlebarsTemplateEngine());
 
         post("/password", (request, response) -> {
-//            TODO: Throw flashMessage if password is correct or incorrect
             String password = request.queryParams("password");
+            HashMap model = request.attribute("model");
             if (password.equals(blogDao.getUser())) {
                 response.cookie("password", password);
-//                TODO: Fix this issue and deleted the next two lines.
-                String actionBeforePassword = request.cookie("actionBeforePassword");
-                String redirectTo = null == actionBeforePassword ? "/" : actionBeforePassword;
-                response.redirect(redirectTo);
+                response.redirect("/");
             } else {
+                FlashMessage.setFlashMessage(request, "Incorrect password, please try again!");
                 response.redirect("/password");
             }
             return null;
