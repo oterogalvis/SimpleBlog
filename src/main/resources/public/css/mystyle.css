@@ -1,0 +1,98 @@
+* {
+    border: solid red 1px;
+}
+
+/*------------------HEADER------------------*/
+.site-header {
+    max-width: 80%;
+    margin: 60px auto 0;
+}
+
+.site-header a {
+    text-decoration: none;
+}
+
+.logo {
+    float: left;
+    margin: 40px
+}
+
+.new-entry {
+    float: right;
+    margin: 40px;
+}
+
+.site-header:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/*------------------BODY------------------*/
+
+.entry-list {
+    max-width: 60%;
+    margin: 0 auto;
+}
+
+article {
+    max-width: 90%;
+    margin: 30px auto;
+}
+
+.title-date {
+}
+
+.title-date h2 {
+    float: left;
+    margin: 20px;
+}
+
+.title-date time {
+    float: right;
+    margin: 20px;
+}
+
+.title-date:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.tags-index {
+    max-width: 30%;
+    margin-left: auto;
+}
+
+.tags-index ul {
+    padding-left: 0;
+}
+
+.tags-index ul li {
+    text-align: center;
+    list-style: none;
+}
+
+/*------------------DETAIL------------------*/
+
+.entry-comments {
+    max-width: 60%;
+    margin: 0 auto;
+}
+
+/*------------------FOOTER------------------*/
+
+footer div {
+    max-width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.footer-link {
+    margin: 40px auto 40px;
+}
+
+.footer-link a {
+    text-decoration: none;
+}

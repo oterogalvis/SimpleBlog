@@ -4,7 +4,10 @@
             <div class="entry-list">
                 {{#each posts}}
                     <article>
-                        <h2><a href="/detail/{{slug}}">{{this.title}}</a></h2>
+                        <div class="title-date">
+                            <h2><a href="/detail/{{slug}}">{{this.title}}</a></h2>
+                            <time>{{this.date}}</time>
+                        </div>
                         {{#if this.tags}}
                             <div class="tags-index">
                                 <ul>
@@ -14,7 +17,6 @@
                                 </ul>
                             </div>
                         {{/if}}
-                        <time>{{this.date}}</time>
                     </article>
                 {{/each}}
             </div>
