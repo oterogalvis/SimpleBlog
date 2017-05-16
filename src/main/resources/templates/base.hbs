@@ -8,8 +8,9 @@
         <link href='https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700|Noto+Sans:700,400'
               rel='stylesheet' type='text/css'>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat+Subrayada" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,500,700" rel="stylesheet">
         <link rel="stylesheet" href="/css/normalize.css">
-        <!--<link rel="stylesheet" href="/css/site.css">-->
         <link rel="stylesheet" href="/css/mystyle.css">
     </head>
     <body>
@@ -19,14 +20,14 @@
         <div class="container">
             <div class="site-header">
                 <a class="logo" href="/index">SparkBlog</a>
-                <a class="new-entry button button-round" href="/new"><i class="material-icons">create</i></a>
+                <a class="new-entry material-create" href="/new"><i class="material-icons">create</i></a>
             </div>
         </div>
     </header>
     {{#if flash_message}}
-        <p class="flash_message">
+        <h2 class="flash_message">
             {{flash_message}}
-        </p>
+        </h2>
     {{/if}}
 {{/block}}
 {{#block "content"}}

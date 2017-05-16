@@ -1,11 +1,13 @@
 * {
-    border: solid red 1px;
+    /*border: solid red 1px;*/
 }
 
 /*------------------HEADER------------------*/
 .site-header {
     max-width: 80%;
-    margin: 60px auto 0;
+    margin: 0 auto 0;
+    padding-top: 3em;
+    padding-bottom: .75em;
 }
 
 .site-header a {
@@ -37,10 +39,12 @@
 
 article {
     max-width: 90%;
-    margin: 30px auto;
+    margin: 60px auto;
 }
 
 .title-date {
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 .title-date h2 {
@@ -66,11 +70,20 @@ article {
 
 .tags-index ul {
     padding-left: 0;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 .tags-index ul li {
     text-align: center;
     list-style: none;
+}
+
+.flash_message {
+    max-width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 15px;
 }
 
 /*------------------DETAIL------------------*/
@@ -80,19 +93,332 @@ article {
     margin: 0 auto;
 }
 
+.entry-comments .container {
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.new-comment label {
+    width: 10%;
+    display: inline-block;
+    float: left;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.new-comment form:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.new-comment form {
+    margin-bottom: 15px;
+}
+
+.new-comment input, .new-comment textarea {
+    width: 60%;
+    display: inline-block;
+    float: right;
+    margin-right: 20%;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+/*------------------PASSWORD------------------*/
+
+.password {
+    max-width: 60%;
+    margin: 0 auto;
+}
+
+.password label {
+    display: block;
+    max-width: 80%;
+    margin: 15px auto 10px;
+    text-align: center;
+}
+
+#password-area {
+    margin: 0 auto;
+    display: block;
+    width: 80%;
+}
+
+.button-bar {
+    max-width: 80%;
+    margin: 25px auto 50px;
+    text-align: center;
+}
+
+.button-bar .button {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+/*------------------EDIT-ENTRY------------------*/
+
+.container-edit {
+    max-width: 60%;
+    margin: 0 auto;
+}
+
+.edit-entry {
+    max-width: 90%;
+    margin: 30px auto 15px;
+}
+
+.entryfrom label {
+    width: 10%;
+    display: inline-block;
+    float: left;
+    margin-left: 5%;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.entryfrom input, .entryfrom textarea {
+    width: 60%;
+    display: inline-block;
+    float: right;
+    margin-right: 20%;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.entryfrom:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.tag-block label {
+    width: 10%;
+    display: inline-block;
+    float: left;
+    margin-left: 5%;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.tag-block ul {
+    width: 60%;
+    display: inline-block;
+    float: right;
+    margin-right: 20%;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    list-style-type: none;
+    padding: 0;
+}
+
+.tag-block input {
+    margin-left: 20%;
+    margin-bottom: 10px;
+}
+
+/*------------------NEW------------------*/
+
+.container-new {
+    max-width: 60%;
+    margin: 0 auto;
+}
+
+.container-new input {
+    margin-top: 15px;
+    display: inline-block;
+}
+
 /*------------------FOOTER------------------*/
+
+footer {
+    padding: 2.5em 0 2.5em;
+    margin-top: auto;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-attachment: scroll;
+}
+
+body {
+    padding-bottom: 75px;
+}
 
 footer div {
     max-width: 80%;
     margin: 0 auto;
     text-align: center;
-    margin-bottom: 60px;
 }
 
 .footer-link {
-    margin: 40px auto 40px;
+    margin: 0 auto;
 }
 
 .footer-link a {
     text-decoration: none;
+}
+
+/*------------------typography------------------*/
+
+.logo {
+    font-family: 'Montserrat Subrayada', sans-serif;
+    font-size: 2.5em;
+    border-top: solid 3px;
+    border-bottom: solid 3px;
+}
+
+.material-create {
+    padding: 5px;
+    border: solid 3px #FFFFFF;
+}
+
+h1, h2, h3, h4, h5, article, .container, .edit-entry {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+h1 {
+    font-weight: 700;
+}
+
+h2 {
+    font-weight: 500;
+    font-size: 1.5em;
+}
+
+h3, h4, h5 {
+    font-weight: 400;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+.footer-link {
+    font-family: 'Montserrat Subrayada', sans-serif;
+    font-size: 1.5em;
+}
+
+article {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.button {
+    font-family: 'Montserrat Subrayada', sans-serif;
+}
+
+/*------------------backgroundAndDesign------------------*/
+
+header, footer {
+    background: rgb(130, 0, 0);
+}
+
+.logo, .material-icons, .footer-link, .footer-link a {
+    color: #FFFFFF;
+}
+
+.title-date {
+    background-color: #b1b1b1;
+    border-top-left-radius: 25px;
+}
+
+.tags-index ul {
+    background-color: #e1e1e1;
+    margin-top: 0;
+    border-bottom-right-radius: 25px;
+}
+
+.article-header {
+    background-color: #b1b1b1;
+    padding: 10px 5% 15px;
+    border-top-left-radius: 25px;
+}
+
+.entry {
+    background-color: #d1d1d1;
+    border-bottom-right-radius: 25px;
+    padding: 10px 5%;
+}
+
+.tags-details {
+    background-color: #e1e1e1;
+    padding: 10px 5% 5px;
+    border-top-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.button {
+    background-color: rgb(130, 0, 0);
+    color: #FFFFFF;
+    padding: .5%;
+    border: none;
+    border-radius: 25px;
+}
+
+.comment-h2 {
+    background-color: #b1b1b1;
+    padding: 10px 5% 15px;
+    border-top-left-radius: 25px;
+    margin-bottom: 0;
+}
+
+.comment {
+    background-color: #d1d1d1;
+    padding: 10px 5%;
+}
+
+.new-comment {
+    background-color: #e1e1e1;
+    padding: 10px 5% 5px;
+    border-bottom-right-radius: 25px;
+    margin-bottom: 60px;
+}
+
+.new-comment textarea, .new-comment input {
+    border: 0;
+}
+
+.entryfrom {
+    background-color: #d1d1d1;
+}
+
+.form-tag {
+    background-color: #e1e1e1;
+    padding: 10px 5% 5px;
+    border-bottom-right-radius: 25px;
+}
+
+.other-button {
+    background-color: transparent;
+    border: none;
+}
+
+.delete-icon {
+    color: rgb(130, 0, 0);
+}
+
+.entryfrom input, .entryfrom textarea {
+    border: none;
+}
+
+.flash_message {
+    border-bottom: 2px solid rgb(130, 0, 0);
+    font-family: 'Ubuntu', sans-serif;
+    color: rgb(130, 0, 0);
+    display: table;
+    margin: 0 auto;
+    padding: 15px;
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+
+.password {
+    background-color: #b1b1b1;
+    border-top-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.password label {
+    padding-top: 15px;
 }

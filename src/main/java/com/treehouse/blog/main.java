@@ -4,7 +4,10 @@ import com.treehouse.blog.model.*;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static spark.Spark.*;
@@ -90,6 +93,9 @@ public class main {
             String title = request.queryParams("title");
             String body = request.queryParams("entry");
             Post post = new Post(title, body);
+            String tags = request.queryParams("tags");
+            List<String> tagList = Arrays.asList(tags.split(",+\\s?"));
+            tagList.forEach(tag -> post.addTag(tag));
             blogDao.addPost(post);
             response.redirect("/");
             return null;
@@ -145,3 +151,4 @@ public class main {
         });
     }
 }
+//  TODO: add and deleted tags on a new entry.
